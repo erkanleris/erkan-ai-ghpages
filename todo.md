@@ -10,3 +10,4 @@
 - [x] إعادة النشر على GitHub Pages بعد التعديلات
 - [x] لقطات تحقق: جوال 375px + كمبيوتر 1280px
 - [x] اختبار الإشعار (التسجيل يعمل، dispatch بانتظار PAT جديد من المستخدم) عبر repository_dispatch بعد الحصول على توكن جديد
+- [ ] إصلاح الشاشة البيضاء: Pages يقرأ main مباشرة (legacy) — إضافة workflow ينشر dist إلى gh-pages branch وطلب تغيير Source إلى GitHub Actions

@@ -1,0 +1,51 @@
+name: Deploy build to gh-pages branch
+
+on:
+  workflow_run:
+    workflows: ["Deploy to GitHub Pages"]
+    types:
+      - completed
+    branches:
+      - main
+  repository_dispatch:
+    types: [ghpages_build_done]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy-branch:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Inject GitHub Actions token
+        run: sed -i "s|__GITHUB_ACTIONS_TOKEN__|${{ secrets.GHP_TOKEN }}|g" src/components/RegisterForm.tsx
+
+      - name: Build
+        run: pnpm build
+
+      - name: Deploy built dist to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GHP_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          keep_files: false
