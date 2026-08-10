@@ -18,8 +18,8 @@ const labelClass = "mb-1.5 block text-sm font-semibold text-foreground/90";
 const errorClass = "mt-1 flex items-start gap-1.5 text-xs font-medium text-red-400";
 
 // GitHub Actions PAT — يُستبدل تلقائياً أثناء عمل workflow النشر
-const GITHUB_REPO = "erkanleris/erkan-ai-prelaunch";
-const GITHUB_TOKEN = "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";
+const GITHUB_REPO = "erkanleris/erkan-ai-ghpages";
+const GITHUB_TOKEN = "__GITHUB_ACTIONS_TOKEN__";
 
 type ValidState = "idle" | "valid" | "invalid";
 
