@@ -57,6 +57,8 @@ def create_branch():
 def upload_dir(root):
     for dirpath, _, files in os.walk(root):
         for fn in files:
+            if ".github" in os.path.relpath(dirpath, root).split(os.sep):
+                continue
             full = os.path.join(dirpath, fn)
             rel = os.path.relpath(full, root)
             with open(full, "rb") as f:
