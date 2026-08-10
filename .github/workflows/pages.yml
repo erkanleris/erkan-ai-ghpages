@@ -42,6 +42,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Inject GitHub Actions token
+        run: sed -i "s|__GITHUB_ACTIONS_TOKEN__|${{ secrets.GHP_TOKEN }}|g" src/components/RegisterForm.tsx
+
       - name: Build
         run: pnpm build
 
