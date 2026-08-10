@@ -64,13 +64,19 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
       - name: Trigger gh-pages branch deployment
+        if: always()
         run: |
           curl -sL -X POST \
             -H "Authorization: Bearer ${{ secrets.GHP_TOKEN }}" \
             -H "Accept: application/vnd.github+json" \
             -d '{"event_type": "ghpages_build_done"}' \
             "https://api.github.com/repos/${{ github.repository }}/dispatches"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GHP_TOKEN }}
