@@ -42,10 +42,7 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Deploy built dist to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GHP_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
-          keep_files: false
+      - name: Deploy built dist to gh-pages branch via Contents API
+        env:
+          GHP_TOKEN: ${{ secrets.GHP_TOKEN }}
+        run: python3 .github/scripts/deploy_ghpages.py dist
