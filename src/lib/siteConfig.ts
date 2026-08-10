@@ -13,7 +13,7 @@ export const LAUNCH_DATE = new Date("2026-09-15T00:00:00Z");
 export const BASE_REGISTERED_COUNT = 56838;
 
 /** رابط الشعار الرسمي — يُرفع مع موقع GitHub Pages */
-export const LOGO_URL = "/icon-180.png";
+export const LOGO_URL = "/erkan-ai-ghpages/icon-180.png";
 
 /** النصوص الأساسية */
 export const SITE = {

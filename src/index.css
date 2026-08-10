@@ -319,3 +319,20 @@
   }
   html { scroll-behavior: auto; }
 }
+
+/* ---------- Responsive mobile tuning ---------- */
+
+/* على الشاشات الصغيرة: تصغير أحجام الخطس الكبيرة وضبط المسافات العمودية */
+@media (max-width: 639px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+/* عدّاد التنازلي: أحجام أصغر على الجوال */
+@media (max-width: 639px) {
+  section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+}

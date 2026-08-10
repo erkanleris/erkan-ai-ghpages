@@ -20,13 +20,13 @@ export default function SuccessScreen({ username, onCopy, onShare, copying }: Pr
       transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
       className="mx-auto max-w-2xl px-4"
     >
-      <div className="glass-card rounded-3xl p-8 text-center md:p-12">
+      <div className="glass-card rounded-3xl p-6 text-center md:p-12">
         {/* Checkmark */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.15, duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-          className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-tr from-emerald-500/25 to-sky-500/25 shadow-[0_0_40px_rgba(52,211,153,0.25)]"
+          className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-emerald-500/25 to-sky-500/25 shadow-[0_0_40px_rgba(52,211,153,0.25)]"
         >
           <svg viewBox="0 0 24 24" className="h-10 w-10 text-emerald-400">
             <path

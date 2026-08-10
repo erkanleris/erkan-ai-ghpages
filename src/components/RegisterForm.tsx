@@ -172,16 +172,16 @@ export default function RegisterForm() {
   }
 
   return (
-    <section id="register" className="relative z-10 px-4 py-20">
+    <section id="register" className="relative z-10 px-4 py-16 sm:py-20">
       <motion.div
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
-        className="mx-auto max-w-2xl"
+        className="mx-auto w-full max-w-2xl px-2 sm:px-4"
       >
-        <div className="mb-10 text-center">
-          <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
+        <div className="mb-8 text-center sm:mb-10">
+          <h2 className="font-display text-2xl font-bold text-white sm:text-3xl md:text-4xl">
             سجّل مسبقاً <span className="text-gradient-brand">واحجز اسمك</span>
           </h2>
           <p className="mt-3 text-muted-foreground">
@@ -189,8 +189,8 @@ export default function RegisterForm() {
           </p>
         </div>
 
-        <div className="glass-card rounded-3xl p-6 md:p-10">
-          <form onSubmit={submit} noValidate className="space-y-5">
+        <div className="glass-card rounded-3xl p-5 sm:p-6 md:p-10">
+          <form onSubmit={submit} noValidate className="space-y-4 sm:space-y-5">
             {/* الاسم الكامل */}
             <div>
               <label htmlFor="fullName" className={labelClass}>الاسم الكامل</label>
@@ -234,7 +234,7 @@ export default function RegisterForm() {
             </div>
 
             {/* العمر + المهنة */}
-            <div className="grid gap-5 sm:grid-cols-2">
+            <div className="grid gap-4 sm:gap-5 sm:grid-cols-2">
               <div>
                 <label htmlFor="age" className={labelClass}>العمر</label>
                 <input

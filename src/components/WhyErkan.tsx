@@ -38,16 +38,16 @@ const CARDS = [
 
 export default function WhyErkan() {
   return (
-    <section id="why" className="relative z-10 px-4 py-24">
+    <section id="why" className="relative z-10 px-4 py-16 sm:py-24">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
-          className="mb-12 text-center"
+          className="mb-8 text-center sm:mb-12"
         >
-          <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
+          <h2 className="font-display text-2xl font-bold text-white sm:text-3xl md:text-4xl">
             لماذا <span className="text-gradient-brand">ERKAN AI</span>؟
           </h2>
           <p className="mt-3 text-muted-foreground">
