@@ -8,9 +8,32 @@ export const LAUNCH_DATE = new Date("2026-09-15T00:00:00Z");
 
 /**
  * العداد الأساسي لعدد المسجلين مسبقاً.
- * في نسخة GitHub Pages الثابتة يُعرض هذا الرقم فقط (لا توجد قاعدة بيانات).
+ * في نسخة GitHub Pages الثابتة: يبدأ من هذا الرقم ويزيد عشوائياً من 1 إلى 7 كل دقيقة.
  */
-export const BASE_REGISTERED_COUNT = 56838;
+export const BASE_REGISTERED_COUNT = 76288;
+
+/**
+ * زيادة عشوائية مُحاكاة: كل دقيقة تُضاف قيمة عشوائية بين 1 و 7.
+ * التسلسل حتمي (بذرة ثابتة لكل دقيقة) ليبقى العدد متسقاً عبر كل جلسة تحميل.
+ */
+const ELAPSED_MINUTES = Math.floor((Date.now() - Date.UTC(2026, 7, 12, 0, 0)) / 60000);
+
+function seededRand(n: number): number {
+  // LCG بسيط بذرة ثابتة لكل دقيقة
+  let x = 1337 + n;
+  x = (x * 9301 + 49297) % 233280;
+  return (x % 7) + 1;
+}
+
+const SIMULATED_ADDITION = Array.from(
+  { length: Math.min(Math.max(ELAPSED_MINUTES, 0), 20000) },
+  (_, i) => seededRand(i),
+).reduce((a, b) => a + b, 0);
+
+/** العدد المعروض حالياً: الأساسي + الزيادة العشوائية المتراكمة */
+export function getLiveRegisteredCount() {
+  return BASE_REGISTERED_COUNT + SIMULATED_ADDITION;
+}
 
 /** رابط الشعار الرسمي — يُرفع مع موقع GitHub Pages */
 export const LOGO_URL = "/erkan-ai-ghpages/icon-180.png";

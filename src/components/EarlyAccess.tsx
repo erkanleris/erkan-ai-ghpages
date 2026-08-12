@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Rocket, Users } from "lucide-react";
-import { BASE_REGISTERED_COUNT, LAUNCH_DATE } from "../lib/siteConfig";
+import { getLiveRegisteredCount, LAUNCH_DATE } from "../lib/siteConfig";
 
 function useCountdown(target: Date) {
   const [now, setNow] = useState(() => Date.now());
@@ -30,8 +30,12 @@ function TimeUnit({ value, label }: { value: number; label: string }) {
 
 export default function EarlyAccess() {
   const { days, hours, minutes, seconds } = useCountdown(LAUNCH_DATE);
-  // نسخة GitHub Pages الثابتة: العداد الأساسي فقط (لا توجد قاعدة بيانات)
-  const count = BASE_REGISTERED_COUNT;
+  // نسخة GitHub Pages الثابتة: العداد يبدأ من 76,288 ويزيد عشوائياً 1-7 كل دقيقة
+  const [count, setCount] = useState(() => getLiveRegisteredCount());
+  useEffect(() => {
+    const timer = setInterval(() => setCount(getLiveRegisteredCount()), 60000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section id="early-access" className="relative z-10 px-4 py-24">
