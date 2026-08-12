@@ -11,4 +11,4 @@
 - [x] لقطات تحقق: جوال 375px + كمبيوتر 1280px
 - [x] اختبار الإشعار (التسجيل يعمل، dispatch بانتظار PAT جديد من المستخدم) عبر repository_dispatch بعد الحصول على توكن جديد
 - [ ] إصلاح الشاشة البيضاء: Pages يقرأ main مباشرة (legacy) — إضافة workflow ينشر dist إلى gh-pages branch وطلب تغيير Source إلى GitHub Actions
-- [ ] تغيير قاعدة العداد إلى 76,288 مع زيادة عشوائية 1-7 كل دقيقة (مشروع Manus + GHP repo + gh-pages)
+- [x] تغيير قاعدة العداد إلى 76,288 مع زيادة عشوائية 1-7 كل دقيقة (مشروع Manus + GHP repo + gh-pages)
