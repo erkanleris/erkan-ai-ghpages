@@ -2,6 +2,7 @@ import AmbientBackground from "./components/AmbientBackground";
 import Hero from "./components/Hero";
 import RegisterForm from "./components/RegisterForm";
 import WhyErkan from "./components/WhyErkan";
+import AppShowcase from "./components/AppShowcase";
 import EarlyAccess from "./components/EarlyAccess";
 import Footer from "./components/Footer";
 
@@ -17,6 +18,7 @@ export default function App() {
       <main className="relative z-0">
         <Hero />
         <WhyErkan />
+        <AppShowcase />
         <RegisterForm />
         <EarlyAccess />
         <Footer />
